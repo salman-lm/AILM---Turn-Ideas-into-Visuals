@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" class="dark">
   <head>
@@ -20,19 +21,19 @@
           extend: {
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
-              tech: ['Manrope', 'sans-serif'], // Premium Agency Font
+              tech: ['Manrope', 'sans-serif'],
             },
             colors: {
               neon: {
-                cyan: '#22d3ee', // cyan-400
-                fuchsia: '#d946ef', // fuchsia-500
-                yellow: '#facc15', // yellow-400
-                green: '#4ade80', // green-400
+                cyan: '#22d3ee',
+                fuchsia: '#d946ef',
+                yellow: '#facc15',
+                green: '#4ade80',
               },
               brand: {
-                dark: '#0f172a', // slate-900
-                darker: '#020617', // slate-950
-                surface: '#1e293b', // slate-800
+                dark: '#0f172a',
+                darker: '#020617',
+                surface: '#1e293b',
               }
             },
             animation: {
@@ -61,11 +62,9 @@
     </script>
     <style>
       body {
-        /* Default base styles handled by classes in App.tsx to support theme switching */
         transition: background-color 0.3s ease, color 0.3s ease;
         overflow-x: hidden;
       }
-      /* Custom Scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
       }
@@ -85,17 +84,6 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #475569;
       }
-      .shimmer-text {
-        background: linear-gradient(to right, #22d3ee 20%, #d946ef 40%, #d946ef 60%, #22d3ee 80%);
-        background-size: 200% auto;
-        color: #000;
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: text-shimmer 3s linear infinite;
-      }
-      
-      /* Hide Scrollbar Utilities */
       .hide-scrollbar::-webkit-scrollbar {
         display: none;
       }
@@ -104,18 +92,20 @@
         scrollbar-width: none;
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react/": "https://esm.sh/react@^19.2.3/"
-  }
-}
-</script>
-</head>
+    <script type="importmap">
+    {
+      "imports": {
+        "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "react/": "https://esm.sh/react@^19.2.3/"
+      }
+    }
+    </script>
+  </head>
   <body>
     <div id="root"></div>
+    <!-- This script tag is required to boot up the application -->
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>

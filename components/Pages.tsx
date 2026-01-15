@@ -1,6 +1,4 @@
-
-
-import React, from 'react';
+import React from 'react';
 import { Mail, Zap, Heart, Cpu, Users, Bot, Globe, UserCheck, Clock, Copy, Check, ShieldCheck, CheckCircle2, AlertTriangle, Cloud, Archive, Info, BookOpen, CreditCard, Edit3, FileText, DatabaseZap, Share2 } from 'lucide-react';
 
 export const AboutPage = () => (
@@ -166,7 +164,7 @@ export const ContactPage = () => {
               <div className="flex items-start gap-4">
                 <Clock className="w-5 h-5 text-slate-400 mt-1 shrink-0" />
                 <div>
-                  <h4 className="font-bold text-slate-800 dark:text-slate-200">Business Hours</h4>
+                  <h4 className="font-bold text-slate-800 dark:text-white mb-1">Business Hours</h4>
                   <p className="text-slate-600 dark:text-slate-400 text-sm">Mon - Sat: 9:00 AM - 8:00 PM EST</p>
                   <p className="text-slate-600 dark:text-slate-400 text-sm">Sunday: Priority Projects Only</p>
                 </div>
@@ -176,7 +174,7 @@ export const ContactPage = () => {
                    <span className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-800 dark:text-slate-200">Current Status</h4>
+                  <h4 className="font-bold text-slate-800 dark:text-white mb-1">Current Status</h4>
                   <p className="text-green-600 dark:text-green-400 font-semibold text-sm">Accepting New Clients</p>
                   <p className="text-slate-500 dark:text-slate-500 text-sm">Next available slot: Today</p>
                 </div>
