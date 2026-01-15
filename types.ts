@@ -1,15 +1,5 @@
 import React from 'react';
 
-export enum PageState {
-  HOME = 'HOME',
-  ABOUT = 'ABOUT',
-  SHIPPING = 'SHIPPING',
-  REFUND = 'REFUND',
-  TERMS = 'TERMS',
-  CONTACT = 'CONTACT',
-  PRIVACY = 'PRIVACY'
-}
-
 export interface Testimonial {
   id: number;
   text: string;

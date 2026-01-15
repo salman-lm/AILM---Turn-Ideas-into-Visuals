@@ -1,7 +1,4 @@
-
-
 import React, { useState, useEffect } from 'react';
-import { PageState } from './types';
 import { 
   Menu, X as CloseIcon, Play, ArrowRight, Check, Instagram, Linkedin, Facebook, Twitter, 
   ShieldCheck, Clock, Zap, Star, StarHalf, Sun, Moon, Sparkles,
@@ -17,7 +14,7 @@ import OrderModal from './components/OrderModal';
 import { AboutPage, ContactPage, LegalPage, TERMS_CONTENT, REFUND_CONTENT, SHIPPING_CONTENT, PRIVACY_CONTENT } from './components/Pages';
 
 const App = () => {
-  const [activePage, setActivePage] = useState<PageState>(PageState.HOME);
+  const [path, setPath] = useState(window.location.pathname);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
   const [activePricingTab, setActivePricingTab] = useState("Video Ads");
@@ -31,34 +28,47 @@ const App = () => {
       document.documentElement.classList.remove('dark');
     }
   }, [theme]);
+  
+  // URL Routing: Listen for browser back/forward
+  useEffect(() => {
+    const onPopState = () => setPath(window.location.pathname);
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
 
   const toggleTheme = () => {
     setTheme(prev => prev === 'dark' ? 'light' : 'dark');
   };
-
-  // Dynamic Title
-  useEffect(() => {
-    const titles = {
-      [PageState.HOME]: "AILM - Turn Ideas into Visuals",
-      [PageState.ABOUT]: "About Us - AILM",
-      [PageState.CONTACT]: "Contact - AILM",
-      [PageState.TERMS]: "Terms of Service - AILM",
-      [PageState.REFUND]: "Refund Policy - AILM",
-      [PageState.SHIPPING]: "Delivery Policy - AILM",
-      [PageState.PRIVACY]: "Privacy Policy - AILM"
-    };
-    document.title = titles[activePage];
-    window.scrollTo(0, 0);
-  }, [activePage]);
-
-  const navigateTo = (page: PageState) => {
-    setActivePage(page);
+  
+  const navigate = (href: string) => {
+    try {
+      window.history.pushState({}, '', href);
+    } catch (e) {
+      console.warn("Could not push state to history due to security restrictions:", e);
+    }
+    setPath(href);
     setMobileMenuOpen(false);
+    window.scrollTo(0, 0);
   };
 
+  // Dynamic Title based on URL path
+  useEffect(() => {
+    const titles: Record<string, string> = {
+      '/': "AILM - Turn Ideas into Visuals",
+      '/about': "About Us - AILM",
+      '/contact': "Contact - AILM",
+      '/terms': "Terms of Service - AILM",
+      '/refund': "Refund Policy - AILM",
+      '/shipping': "Delivery Policy - AILM",
+      '/privacy': "Privacy Policy - AILM"
+    };
+    document.title = titles[path] || "AILM - 404 Not Found";
+    
+  }, [path]);
+
   const scrollToSection = (id: string) => {
-    if (activePage !== PageState.HOME) {
-      setActivePage(PageState.HOME);
+    if (path !== '/') {
+      navigate('/');
       setTimeout(() => {
         const el = document.getElementById(id);
         el?.scrollIntoView({ behavior: 'smooth' });
@@ -71,7 +81,7 @@ const App = () => {
   };
 
   const Logo = () => (
-    <div className="flex items-center gap-2 cursor-pointer group shrink-0" onClick={() => navigateTo(PageState.HOME)}>
+    <div className="flex items-center gap-2 cursor-pointer group shrink-0" onClick={() => navigate('/')}>
       <div className="bg-[#0091ea] w-10 h-10 flex items-center justify-center rounded-[24%] shadow-lg group-hover:scale-105 transition-transform duration-300">
         <Play className="w-5 h-5 text-white fill-white ml-0.5" />
       </div>
@@ -88,11 +98,11 @@ const App = () => {
           <Logo />
           
           <nav className="hidden md:flex space-x-8">
-            <button onClick={() => navigateTo(PageState.HOME)} className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Home</button>
+            <button onClick={() => navigate('/')} className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Home</button>
             <button onClick={() => scrollToSection('services')} className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Services</button>
             <button onClick={() => scrollToSection('pricing')} className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Pricing</button>
-            <button onClick={() => navigateTo(PageState.ABOUT)} className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">About</button>
-            <button onClick={() => navigateTo(PageState.CONTACT)} className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Contact</button>
+            <button onClick={() => navigate('/about')} className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">About</button>
+            <button onClick={() => navigate('/contact')} className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Contact</button>
           </nav>
 
           <div className="flex items-center space-x-4">
@@ -112,7 +122,6 @@ const App = () => {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="md:hidden p-2 text-slate-600 dark:text-slate-300"
             >
-              {/* FIX: Use renamed CloseIcon component */}
               {mobileMenuOpen ? <CloseIcon className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
@@ -122,11 +131,11 @@ const App = () => {
       {mobileMenuOpen && (
         <div className="md:hidden bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 animate-in slide-in-from-top duration-300">
           <div className="px-4 pt-2 pb-6 space-y-2">
-            <button onClick={() => navigateTo(PageState.HOME)} className="block w-full text-left px-4 py-3 text-base font-medium text-slate-600 dark:text-slate-300">Home</button>
+            <button onClick={() => navigate('/')} className="block w-full text-left px-4 py-3 text-base font-medium text-slate-600 dark:text-slate-300">Home</button>
             <button onClick={() => scrollToSection('services')} className="block w-full text-left px-4 py-3 text-base font-medium text-slate-600 dark:text-slate-300">Services</button>
             <button onClick={() => scrollToSection('pricing')} className="block w-full text-left px-4 py-3 text-base font-medium text-slate-600 dark:text-slate-300">Pricing</button>
-            <button onClick={() => navigateTo(PageState.ABOUT)} className="block w-full text-left px-4 py-3 text-base font-medium text-slate-600 dark:text-slate-300">About</button>
-            <button onClick={() => navigateTo(PageState.CONTACT)} className="block w-full text-left px-4 py-3 text-base font-medium text-slate-600 dark:text-slate-300">Contact</button>
+            <button onClick={() => navigate('/about')} className="block w-full text-left px-4 py-3 text-base font-medium text-slate-600 dark:text-slate-300">About</button>
+            <button onClick={() => navigate('/contact')} className="block w-full text-left px-4 py-3 text-base font-medium text-slate-600 dark:text-slate-300">Contact</button>
             <button 
               onClick={() => { setIsOrderModalOpen(true); setMobileMenuOpen(false); }}
               className="w-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 py-4 rounded-xl font-bold mt-4"
@@ -166,12 +175,12 @@ const App = () => {
           <div>
             <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-6 font-tech">Company</h4>
             <ul className="space-y-4">
-              <li><button onClick={() => navigateTo(PageState.ABOUT)} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">About Us</button></li>
-              <li><button onClick={() => navigateTo(PageState.CONTACT)} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Contact Us</button></li>
-              <li><button onClick={() => navigateTo(PageState.REFUND)} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Refund Policy</button></li>
-              <li><button onClick={() => navigateTo(PageState.SHIPPING)} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Shipping & Delivery</button></li>
-              <li><button onClick={() => navigateTo(PageState.PRIVACY)} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Privacy Policy</button></li>
-              <li><button onClick={() => navigateTo(PageState.TERMS)} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Terms of Service</button></li>
+              <li><button onClick={() => navigate('/about')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">About Us</button></li>
+              <li><button onClick={() => navigate('/contact')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Contact Us</button></li>
+              <li><button onClick={() => navigate('/refund')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Refund Policy</button></li>
+              <li><button onClick={() => navigate('/shipping')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Shipping & Delivery</button></li>
+              <li><button onClick={() => navigate('/privacy')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Privacy Policy</button></li>
+              <li><button onClick={() => navigate('/terms')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Terms of Service</button></li>
             </ul>
           </div>
 
@@ -503,7 +512,6 @@ const App = () => {
                   ))}
                   {plan.excluded.map((feature, eIdx) => (
                     <li key={eIdx} className="flex items-start gap-3 text-sm text-slate-400 dark:text-slate-500">
-                      {/* FIX: Use renamed CloseIcon component to prevent naming collisions. */}
                       <CloseIcon className="w-4 h-4 mt-0.5 shrink-0" />
                       <span>{feature}</span>
                     </li>
@@ -530,7 +538,7 @@ const App = () => {
                 <p className="text-slate-500 dark:text-slate-400">Large volume orders or complex storytelling projects.</p>
               </div>
             </div>
-            <button onClick={() => navigateTo(PageState.CONTACT)} className="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl font-black transition-transform hover:scale-105">Get a Custom Quote</button>
+            <button onClick={() => navigate('/contact')} className="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl font-black transition-transform hover:scale-105">Get a Custom Quote</button>
           </div>
         </div>
       </section>
@@ -628,15 +636,15 @@ const App = () => {
   );
 
   const renderContent = () => {
-    switch (activePage) {
-      case PageState.HOME: return renderHome();
-      case PageState.ABOUT: return <AboutPage />;
-      case PageState.CONTACT: return <ContactPage />;
-      case PageState.TERMS: return <LegalPage title="Terms of Service" subtitle="Last Updated: July 2024" content={TERMS_CONTENT} />;
-      case PageState.REFUND: return <LegalPage title="Refund Policy" subtitle="Transparency is our core value." content={REFUND_CONTENT} />;
-      case PageState.SHIPPING: return <LegalPage title="Delivery Policy" subtitle="Instant, Secure, and 100% Digital." content={SHIPPING_CONTENT} />;
-      case PageState.PRIVACY: return <LegalPage title="Privacy Policy" subtitle="Your Data, Your Trust." content={PRIVACY_CONTENT} />;
-      default: return renderHome();
+    switch (path) {
+      case '/': return renderHome();
+      case '/about': return <AboutPage />;
+      case '/contact': return <ContactPage />;
+      case '/terms': return <LegalPage title="Terms of Service" subtitle="Last Updated: July 2024" content={TERMS_CONTENT} />;
+      case '/refund': return <LegalPage title="Refund Policy" subtitle="Transparency is our core value." content={REFUND_CONTENT} />;
+      case '/shipping': return <LegalPage title="Delivery Policy" subtitle="Instant, Secure, and 100% Digital." content={SHIPPING_CONTENT} />;
+      case '/privacy': return <LegalPage title="Privacy Policy" subtitle="Your Data, Your Trust." content={PRIVACY_CONTENT} />;
+      default: return renderHome(); // Fallback to home page
     }
   };
 

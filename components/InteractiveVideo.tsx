@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Play, AlertCircle } from 'lucide-react';
+import { AlertCircle } from 'lucide-react';
 
 interface InteractiveVideoProps {
   id: string; // ScreenPal ID or Direct URL
@@ -59,15 +59,13 @@ const InteractiveVideo: React.FC<InteractiveVideoProps> = ({ id, aspectRatio = "
             </video>
         </div>
 
-        {/* Overlay - Only visible when not playing */}
+        {/* Overlay - Clickable area without the play icon */}
         {!isPlaying && (
             <div 
-                className="absolute inset-0 z-20 cursor-pointer bg-black/20 hover:bg-black/40 transition-colors duration-300 flex items-center justify-center"
+                className="absolute inset-0 z-20 cursor-pointer bg-black/5 hover:bg-black/20 transition-colors duration-300 flex items-center justify-center"
                 onClick={handlePlay}
             >
-                <div className="w-16 h-16 bg-white/90 dark:bg-neon-cyan/90 rounded-full flex items-center justify-center shadow-lg dark:shadow-[0_0_20px_rgba(34,211,238,0.5)] group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm">
-                    <Play className="w-8 h-8 text-black ml-1 fill-black" />
-                </div>
+                {/* Visual icon removed as requested */}
             </div>
         )}
       </div>
@@ -79,12 +77,10 @@ const InteractiveVideo: React.FC<InteractiveVideoProps> = ({ id, aspectRatio = "
     <div className="relative w-full rounded-lg overflow-hidden bg-black shadow-lg border border-slate-200 dark:border-slate-800" style={{ paddingTop: aspectRatio }}>
         {!isPlaying && (
            <div 
-             className="absolute inset-0 z-20 cursor-pointer bg-black/20 hover:bg-black/40 transition-colors duration-300 flex items-center justify-center"
+             className="absolute inset-0 z-20 cursor-pointer bg-black/5 hover:bg-black/20 transition-colors duration-300 flex items-center justify-center"
              onClick={() => setIsPlaying(true)}
            >
-              <div className="w-16 h-16 bg-white/90 dark:bg-neon-cyan/90 rounded-full flex items-center justify-center shadow-lg dark:shadow-[0_0_20px_rgba(34,211,238,0.5)] transition-transform duration-300 backdrop-blur-sm">
-                  <Play className="w-8 h-8 text-black ml-1 fill-black" />
-              </div>
+              {/* Visual icon removed as requested */}
            </div>
         )}
         <div className="absolute inset-0 w-full h-full">
