@@ -6,7 +6,7 @@ import { Users, Video, Image as ImageIcon, MonitorPlay } from 'lucide-react';
 export const TESTIMONIALS: Testimonial[] = [
   { 
     id: 1, 
-    text: "AILM's AI video ads transformed our eCommerce campaigns. We saw a double increase in ROAS within weeks. The quality is indistinguishable from high-end production.", 
+    text: "AILM's custom software solutions transformed our eCommerce operations. Their media production quality is indistinguishable from high-end cinematic work.", 
     author: "Sarah Jenkins", 
     role: "Marketing Director, E-com Co",
     rating: 5,
@@ -14,7 +14,7 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   { 
     id: 2, 
-    text: "The image-to-video service is pure magic! They turned our static product photos into cinematic promos overnight. Highly recommended for dropshippers.", 
+    text: "The digital media production is pure magic! They turned our brand vision into a cohesive digital experience. Highly recommended for scaling businesses.", 
     author: "David Chen", 
     role: "Founder, TechGear",
     rating: 5,
@@ -46,11 +46,19 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   { 
     id: 6, 
-    text: "Expert ad management combined with top-tier AI creatives. It's rare to find an agency that handles both tech and creative so well.", 
+    text: "Expert software development combined with top-tier media production. It's rare to find an agency that handles both deep tech and creative so well.", 
     author: "James Wilson", 
     role: "CEO, GrowthLabs",
     rating: 5,
     avatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&h=150"
+  },
+  { 
+    id: 7, 
+    text: "The enterprise software AILM built for us is world-class. It streamlined our entire supply chain and integrated perfectly with our existing media assets.", 
+    author: "Robert Chen", 
+    role: "CTO, Global Logistics",
+    rating: 5,
+    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&h=150"
   }
 ];
 
@@ -59,20 +67,20 @@ export const PRICING_PLANS: Record<string, PricingPlan[]> = {
     {
       name: "Starter",
       price: 40,
-      features: ["Up to 15s Duration", "1 Aspect Ratio", "AI Voiceover", "Subtitles", "Music & SFX", "Lifetime License", "24h Delivery"],
+      features: ["Up to 15s Duration", "1 Aspect Ratio", "Professional Voiceover", "Subtitles", "Music & SFX", "Lifetime License", "24h Delivery"],
       excluded: ["Video Editing", "Custom Sound Design", "Script Assistance", "Generated Examples"]
     },
     {
       name: "Growth",
       price: 60,
-      features: ["Up to 30s Duration", "2 Aspect Ratios", "AI Voiceover", "Subtitles", "Music & SFX", "Script Assistance", "Video Editing", "Lifetime License", "24h Delivery"],
+      features: ["Up to 30s Duration", "2 Aspect Ratios", "Professional Voiceover", "Subtitles", "Music & SFX", "Script Assistance", "Video Editing", "Lifetime License", "24h Delivery"],
       excluded: ["Custom Sound Design", "Generated Examples"],
       recommended: true
     },
     {
       name: "Premium",
       price: 100,
-      features: ["Up to 60s Duration", "3 Aspect Ratios", "Premium AI Voiceover", "Subtitles", "Custom Sound Design", "Script Writing", "Video Editing", "Source Files", "Lifetime License", "Priority Support"],
+      features: ["Up to 60s Duration", "3 Aspect Ratios", "Premium Voiceover", "Subtitles", "Custom Sound Design", "Script Writing", "Video Editing", "Source Files", "Lifetime License", "Priority Support"],
       excluded: []
     }
   ],
@@ -101,30 +109,52 @@ export const PRICING_PLANS: Record<string, PricingPlan[]> = {
     {
       name: "Starter Pack",
       price: 20,
-      features: ["10 AI Generated Images", "High Res (2K)", "Commercial Use", "Standard Styles"],
+      features: ["10 Custom Digital Images", "High Res (2K)", "Commercial Use", "Standard Styles"],
       excluded: ["Upscaling to 4K", "Complex Compositing", "PSD Files"]
     },
     {
       name: "Pro Pack",
       price: 40,
-      features: ["25 AI Generated Images", "Ultra Res (4K)", "Commercial Use", "Advanced Styles", "Upscaling Included"],
+      features: ["25 Custom Digital Images", "Ultra Res (4K)", "Commercial Use", "Advanced Styles", "Upscaling Included"],
       excluded: ["PSD Files"],
       recommended: true
     },
     {
       name: "Agency Pack",
       price: 80,
-      features: ["50 AI Generated Images", "Ultra Res (8K)", "Commercial Use", "Any Style", "Complex Compositing", "PSD Files", "Priority Delivery"],
+      features: ["50 Custom Digital Images", "Ultra Res (8K)", "Commercial Use", "Any Style", "Complex Compositing", "PSD Files", "Priority Delivery"],
+      excluded: []
+    }
+  ],
+  "Software Dev": [
+    {
+      name: "MVP Launch",
+      price: 2500,
+      features: ["Custom Web App", "Responsive Design", "User Authentication", "Database Integration", "Basic API", "1 Month Support"],
+      excluded: ["Mobile App", "Advanced AI Integration", "Scalability Testing"]
+    },
+    {
+      name: "Business Pro",
+      price: 5000,
+      features: ["Full Stack Solution", "Custom Dashboard", "Payment Gateway", "Advanced SEO", "API Development", "3 Months Support", "Cloud Hosting Setup"],
+      excluded: ["Custom AI Models"],
+      recommended: true
+    },
+    {
+      name: "Enterprise",
+      price: 12000,
+      features: ["Microservices Architecture", "Custom AI Integration", "Mobile App (iOS/Android)", "High-Load Optimization", "Dedicated Support", "Security Audit"],
       excluded: []
     }
   ]
 };
 
 export const FAQS = [
+  { q: "What technologies do you use for software development?", a: "We specialize in modern stacks including React, Next.js, Node.js, and Python. We also integrate advanced AI capabilities using Gemini and other LLMs to build intelligent, future-proof applications." },
   { q: "What does 'Lifetime License' mean?", a: "It means you own the final video/Images file completely. You can use it in paid ads, on your website, or social media forever without paying any recurring royalties to us." },
   { q: "What information do you need from me to start the project?", a: "A clear description of your idea, desired style, length, or any reference images/links helps us deliver exactly what you envision. If you have a script—great! If not, just share the concept or theme, and we'll handle the rest." },
-  { q: "Can you develop a full video if I don't provide a script?", a: "Yes, definitely! We specialize in building complete videos from scratch. Tell us the topic, mood, target audience, or goal, and we'll craft the storyline, visuals, and flow for a polished, original piece." },
-  { q: "Does the final video include voiceover or background music?", a: "Yes, we can include high-quality AI voice narration (various accents/languages) and fitting royalty-free music. Just let us know your preferences—these are standard in our packages." },
+  { q: "Can you develop a full video if I don't provide a script?", a: "Yes, definitely! We specialize in building complete digital solutions from scratch. Tell us the topic, mood, target audience, or goal, and we'll craft the storyline, visuals, and flow for a polished, original piece." },
+  { q: "Does the final video include voiceover or background music?", a: "Yes, we can include high-quality professional voice narration (various accents/languages) and fitting royalty-free music. Just let us know your preferences—these are standard in our packages." },
   { q: "How many revisions do I get?", a: "We offer unlimited revisions within reason to ensure you are satisfied with the final output. We want you to love your assets." },
   { q: "What is your refund policy?", a: "We work until you are satisfied. However, due to the nature of digital custom work, once the final non-watermarked assets are delivered, we do not offer refunds. We will provide watermarked drafts for approval first." }
 ];
@@ -173,7 +203,7 @@ export const SERVICE_DATA: Record<string, ServiceItem[]> = {
 
 export const IMPACT_STATS = [
   { end: 140, label: "Brands Served", icon: <Users className="w-6 h-6" />, suffix: "+" },
-  { end: 5000, label: "Videos Delivered", icon: <Video className="w-6 h-6" />, suffix: "+" },
-  { end: 3000, label: "Ads Created", icon: <MonitorPlay className="w-6 h-6" />, suffix: "+" },
-  { end: 10000, label: "Images Generated", icon: <ImageIcon className="w-6 h-6" />, suffix: "+" },
+  { end: 5000, label: "Projects Delivered", icon: <Video className="w-6 h-6" />, suffix: "+" },
+  { end: 3000, label: "Software Solutions", icon: <MonitorPlay className="w-6 h-6" />, suffix: "+" },
+  { end: 10000, label: "Creative Assets", icon: <ImageIcon className="w-6 h-6" />, suffix: "+" },
 ];

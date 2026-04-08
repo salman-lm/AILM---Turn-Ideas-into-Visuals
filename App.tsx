@@ -5,7 +5,10 @@ import {
   Image as ImageIcon,
   MessageSquare,
   Users,
-  Lightbulb
+  Lightbulb,
+  DatabaseZap,
+  Cloud,
+  Bot
 } from 'lucide-react';
 import { TESTIMONIALS, PRICING_PLANS, FAQS, SERVICE_DATA, IMPACT_STATS } from './constants';
 import InteractiveVideo from './components/InteractiveVideo';
@@ -54,7 +57,7 @@ const App = () => {
   // Dynamic Title based on URL path
   useEffect(() => {
     const titles: Record<string, string> = {
-      '/': "AILM - Turn Ideas into Visuals",
+      '/': "AILM - Digital Media Production & Software Development",
       '/about': "About Us - AILM",
       '/contact': "Contact - AILM",
       '/terms': "Terms of Service - AILM",
@@ -155,20 +158,21 @@ const App = () => {
           <div className="space-y-6">
             <h4 className="text-2xl font-sans font-black text-slate-900 dark:text-white tracking-tighter">AILM Digital Agency</h4>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-              Leading the AI revolution in creative content. We turn your wildest ideas into viral visual realities using bleeding-edge technology.
+              Empowering brands through high-end digital media production and custom software solutions. We bridge the gap between creative vision and technical excellence.
             </p>
           </div>
 
           <div>
             <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-6 font-tech">Services</h4>
             <ul className="space-y-4">
+              <li><button onClick={() => scrollToSection('software-development')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Software Development</button></li>
               <li><button onClick={() => scrollToSection('build-your-face-value')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Build Your Face Value</button></li>
-              <li><button onClick={() => scrollToSection('ai-video-ads')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">AI Video Ads</button></li>
-              <li><button onClick={() => scrollToSection('ai-image-ads')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">AI Image Ads</button></li>
-              <li><button onClick={() => scrollToSection('image-to-video')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Image to Video</button></li>
-              <li><button onClick={() => scrollToSection('ai-stock-footage')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">AI Stock Footage</button></li>
-              <li><button onClick={() => scrollToSection('ai-stock-images')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">AI Stock Images</button></li>
-              <li><button onClick={() => scrollToSection('ai-storytelling')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">AI Storytelling</button></li>
+              <li><button onClick={() => scrollToSection('video-production')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Video Production</button></li>
+              <li><button onClick={() => scrollToSection('media-design')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Media Design</button></li>
+              <li><button onClick={() => scrollToSection('motion-graphics')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Motion Graphics</button></li>
+              <li><button onClick={() => scrollToSection('premium-stock-footage')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Premium Stock Footage</button></li>
+              <li><button onClick={() => scrollToSection('premium-stock-images')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Premium Stock Images</button></li>
+              <li><button onClick={() => scrollToSection('digital-storytelling')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Digital Storytelling</button></li>
             </ul>
           </div>
 
@@ -227,14 +231,14 @@ const App = () => {
           </div>
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-[1.1] tracking-tight dark:text-white text-slate-900">
-            We Create <br />
+            Digital Media Production & <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-blue-500 to-fuchsia-500 animate-text-shimmer">
-              Viral AI Visuals
+              Software Development
             </span>
           </h1>
           
           <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed font-medium">
-            Get scroll-stopping video ads, Images, product showcases, and social content delivered in 24 hours. Custom made. Lifetime license.
+            Premium video production, custom software development, and digital marketing strategies. We build the tools and content that drive modern business growth.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -259,9 +263,9 @@ const App = () => {
              <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm font-semibold">
                <Clock className="w-5 h-5 text-fuchsia-500" /> 24h Delivery
              </div>
-             <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm font-semibold">
-               <Zap className="w-5 h-5 text-yellow-500" /> AI Driven Efficiency
-             </div>
+              <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm font-semibold">
+                <Zap className="w-5 h-5 text-yellow-500" /> Technology Driven Efficiency
+              </div>
           </div>
         </div>
       </section>
@@ -301,6 +305,37 @@ const App = () => {
           </div>
 
           <div className="space-y-32">
+            {/* Ultra Premium Section: Software Development */}
+            <div id="software-development" className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-fuchsia-500/5 blur-3xl -z-10"></div>
+              <div className="flex flex-col items-center text-center mb-12">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 mb-6">
+                  <DatabaseZap className="w-4 h-4 text-cyan-500" />
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-600 dark:text-slate-400">Ultra Premium Service</span>
+                </div>
+                <h4 className="text-4xl md:text-6xl font-black font-tech text-slate-900 dark:text-white mb-6">Software Development</h4>
+                <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                  Enterprise-grade software solutions tailored to your business needs. From custom SaaS platforms to complex AI integrations, we build the digital backbone of your brand.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                {[
+                  { title: "Custom SaaS", desc: "Scalable web applications built with modern stacks like Next.js and Node.js.", icon: <Cloud className="w-8 h-8 text-cyan-500" /> },
+                  { title: "AI Integration", desc: "Infuse your software with intelligence using Gemini and custom LLM solutions.", icon: <Bot className="w-8 h-8 text-fuchsia-500" /> },
+                  { title: "Mobile Apps", desc: "High-performance native and cross-platform mobile experiences for iOS and Android.", icon: <Zap className="w-8 h-8 text-yellow-500" /> }
+                ].map((item, i) => (
+                  <div key={i} className="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-cyan-500 transition-all group">
+                    <div className="mb-6 p-3 bg-slate-50 dark:bg-slate-800 w-fit rounded-2xl group-hover:scale-110 transition-transform">
+                      {item.icon}
+                    </div>
+                    <h5 className="text-xl font-bold text-slate-900 dark:text-white mb-3 font-tech">{item.title}</h5>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* New Section: Build Your Face Value */}
             <div id="build-your-face-value">
               <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
@@ -321,19 +356,19 @@ const App = () => {
             </div>
             
             {/* Featured: Video Ads */}
-            <div id="ai-video-ads">
+            <div id="video-production">
               <div className="flex items-center justify-center gap-3 mb-8">
                 <div className="p-2 bg-cyan-100 dark:bg-neon-cyan/20 rounded-lg text-cyan-600 dark:text-neon-cyan">
                   <Play className="w-6 h-6 fill-current" />
                 </div>
-                <h4 className="text-3xl font-extrabold font-tech text-slate-900 dark:text-white">AI Video Ads</h4>
+                <h4 className="text-3xl font-extrabold font-tech text-slate-900 dark:text-white">Video Production</h4>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {SERVICE_DATA.videoAds.map((item) => (
                   <div key={item.id} className="group relative">
                     <InteractiveVideo id={item.src} title="Video Ad Example" />
                     <div className="mt-4 flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                       <span className="text-sm font-medium text-slate-500 uppercase tracking-widest">E-commerce Ad</span>
+               <span className="text-sm font-medium text-slate-500 uppercase tracking-widest">Production Example</span>
                        <button onClick={() => setIsOrderModalOpen(true)} className="text-cyan-500 text-sm font-bold hover:underline">Request Similar</button>
                     </div>
                   </div>
@@ -342,12 +377,12 @@ const App = () => {
             </div>
 
             {/* New: AI Image Ads */}
-            <div id="ai-image-ads">
+            <div id="media-design">
               <div className="flex items-center justify-center gap-3 mb-8">
                 <div className="p-2 bg-green-100 dark:bg-neon-green/20 rounded-lg text-green-600 dark:text-neon-green">
                   <ImageIcon className="w-6 h-6" />
                 </div>
-                <h4 className="text-3xl font-extrabold font-tech text-slate-900 dark:text-white">AI Image Ads</h4>
+                <h4 className="text-3xl font-extrabold font-tech text-slate-900 dark:text-white">Media Design</h4>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {SERVICE_DATA.imageAds.map(item => (
@@ -359,12 +394,12 @@ const App = () => {
             </div>
 
             {/* Featured: Image to Video */}
-            <div id="image-to-video">
+            <div id="motion-graphics">
               <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
                 <div className="p-2 bg-fuchsia-100 dark:bg-neon-fuchsia/20 rounded-lg text-fuchsia-600 dark:text-neon-fuchsia">
                   <Sparkles className="w-6 h-6" />
                 </div>
-                <h4 className="text-3xl font-extrabold font-tech text-slate-900 dark:text-white">Image To Video</h4>
+                <h4 className="text-3xl font-extrabold font-tech text-slate-900 dark:text-white">Motion Graphics</h4>
                 <div className="bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full animate-pulse shadow-lg tracking-widest flex items-center gap-1">
                   Trending Service 🔥
                 </div>
@@ -433,8 +468,8 @@ const App = () => {
             </div>
 
             {/* AI Stock Footage */}
-            <div id="ai-stock-footage">
-              <h4 className="text-3xl font-extrabold font-tech text-slate-900 dark:text-white mb-8 text-center">AI Stock Footage</h4>
+            <div id="premium-stock-footage">
+              <h4 className="text-3xl font-extrabold font-tech text-slate-900 dark:text-white mb-8 text-center">Premium Stock Footage</h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {SERVICE_DATA.stockVideo.map(item => (
                    <InteractiveVideo key={item.id} id={item.src} title="Stock Video" />
@@ -443,8 +478,8 @@ const App = () => {
             </div>
 
             {/* AI Stock Images */}
-            <div id="ai-stock-images">
-              <h4 className="text-3xl font-extrabold font-tech text-slate-900 dark:text-white mb-8 text-center">AI Stock Images</h4>
+            <div id="premium-stock-images">
+              <h4 className="text-3xl font-extrabold font-tech text-slate-900 dark:text-white mb-8 text-center">Premium Stock Images</h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {SERVICE_DATA.stockImage.map(item => (
                    <div key={item.id} className="aspect-video rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 group relative">
@@ -455,8 +490,8 @@ const App = () => {
             </div>
 
             {/* AI Storytelling */}
-            <div id="ai-storytelling">
-              <h4 className="text-3xl font-extrabold font-tech text-slate-900 dark:text-white mb-8 text-center">AI Storytelling</h4>
+            <div id="digital-storytelling">
+              <h4 className="text-3xl font-extrabold font-tech text-slate-900 dark:text-white mb-8 text-center">Digital Storytelling</h4>
               <div className="max-w-4xl mx-auto">
                 {SERVICE_DATA.storytelling.map(item => (
                    <InteractiveVideo key={item.id} id={item.src} title="AI Storytelling" />

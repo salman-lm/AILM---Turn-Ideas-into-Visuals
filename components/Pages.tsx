@@ -6,13 +6,13 @@ export const AboutPage = () => (
     {/* Hero Section */}
     <div className="max-w-3xl mx-auto text-center mb-16 animate-float">
       <h1 className="text-4xl md:text-5xl font-tech font-bold mb-6 leading-tight">
-        The Future of <br />
+        Digital Media & <br />
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-          Video Production
+          Software Innovation
         </span>
       </h1>
       <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
-        AILM isn't just an agency. We are a hybrid creative engine combining generative AI speed with human storytelling expertise.
+        AILM is a full-service digital agency bridging the gap between high-end media production and custom software development. We build the digital infrastructure and the content that powers modern brands.
       </p>
     </div>
 
@@ -32,22 +32,22 @@ export const AboutPage = () => (
         </div>
 
         <div className="relative z-10">
-          <h2 className="text-4xl font-extrabold mb-4 font-tech text-center">The Hybrid Advantage</h2>
+          <h2 className="text-4xl font-extrabold mb-4 font-tech text-center">The Tech-Creative Synergy</h2>
           <p className="text-slate-400 mb-6 text-center">
-            Traditional studios are slow and expensive. Pure AI tools lack soul and consistency.
+            Traditional agencies are siloed. We integrate creative storytelling with robust software engineering.
           </p>
           <p className="text-lg font-medium text-white mb-8 text-center">
-            We sit perfectly in the middle.
+            We build the tools and the content.
           </p>
           
           <ul className="space-y-4 max-w-md mx-auto">
             <li className="flex items-center gap-3 text-slate-300">
               <Zap className="w-5 h-5 text-yellow-500 shrink-0" />
-              <span>AI handles the heavy lifting (rendering, textures).</span>
+              <span>Software Development scales your business operations.</span>
             </li>
             <li className="flex items-center gap-3 text-slate-300">
               <Heart className="w-5 h-5 text-red-500 shrink-0" />
-              <span>Humans handle the emotion (pacing, script, polish).</span>
+              <span>Media Production builds your brand's visual authority.</span>
             </li>
           </ul>
         </div>
@@ -59,10 +59,10 @@ export const AboutPage = () => (
       <h2 className="text-4xl font-extrabold mb-8 font-tech text-center">Our Mission</h2>
       <div className="space-y-6 text-slate-400 text-lg leading-relaxed text-center">
         <p>
-          We believe high-quality video marketing shouldn't be reserved for Fortune 500 companies with massive budgets.
+          We believe high-end digital solutions shouldn't be reserved for Fortune 500 companies with massive budgets.
         </p>
         <p>
-          By leveraging bleeding-edge Generative AI models, we slash production costs by 80% and turnaround times by 90%, passing those savings directly to you.
+          By leveraging modern development frameworks and cinematic production techniques, we deliver enterprise-grade results at startup speed, passing those efficiencies directly to you.
         </p>
       </div>
     </div>
@@ -70,10 +70,18 @@ export const AboutPage = () => (
     {/* Core Values Grid */}
     <div className="max-w-3xl mx-auto grid grid-cols-1 gap-6 mb-24">
       <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-8 hover:border-slate-700 transition-colors">
+        <DatabaseZap className="w-10 h-10 text-cyan-400 mb-6" />
+        <h3 className="text-2xl font-extrabold mb-3 font-tech">Full-Stack Excellence</h3>
+        <p className="text-slate-400 leading-relaxed">
+          Our software team builds robust, scalable, and secure applications using the latest technologies, ensuring your business is ready for the future.
+        </p>
+      </div>
+
+      <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-8 hover:border-slate-700 transition-colors">
         <Bot className="w-10 h-10 text-cyan-400 mb-6" />
         <h3 className="text-2xl font-extrabold mb-3 font-tech">Tech-First</h3>
         <p className="text-slate-400 leading-relaxed">
-          We constantly upgrade our AI models (Gemini, Midjourney, Runway) to ensure you get the sharpest, most realistic visuals available.
+          We constantly upgrade our tech stack and production tools to ensure you get the most efficient and impactful results available.
         </p>
       </div>
 
@@ -219,7 +227,7 @@ export const TERMS_CONTENT = (
 
       <div>
         <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 font-tech flex items-center gap-3"><Zap className="w-5 h-5 text-slate-400"/>2. Services</h3>
-        <p className="pl-8 text-slate-700 dark:text-slate-300">AILM provides AI-assisted video and image creation services. We deliver digital files based on client briefs. While we use advanced AI tools, all output is curated and refined by human editors to ensure quality.</p>
+        <p className="pl-8 text-slate-700 dark:text-slate-300">AILM provides high-end digital media production and custom software development services. We deliver digital solutions, including custom web and mobile applications, based on client briefs. Our output is curated and refined by experts to ensure enterprise-grade quality.</p>
       </div>
 
       <div>
