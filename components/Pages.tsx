@@ -589,43 +589,42 @@ export const AILabsPage = ({ navigate }: { navigate: (path: string) => void }) =
 export const FIRA_PRO_PRIVACY_CONTENT = (
   <div className="space-y-8">
     <section>
-      <h2 className="text-2xl font-bold mb-4 text-cyan-500 font-tech">1. INFORMATION WE COLLECT</h2>
-      <ul className="list-disc pl-6 space-y-2">
-        <li><strong>Account Data:</strong> We use anonymous authentication and Supabase Auth. We do not collect your name or email unless you explicitly provide it for support.</li>
-        <li><strong>Usage Data:</strong> We collect information on how you interact with stories, masterclasses, and AI tools via Firebase Analytics to improve the app experience.</li>
-        <li><strong>Device Information:</strong> We may collect basic device info (model, OS version) for crash reporting via Firebase Crashlytics.</li>
+      <h2 className="text-2xl font-bold mb-4 text-cyan-500 font-tech">1. DATA MINIMIZATION</h2>
+      <p className="text-slate-700 dark:text-slate-300">
+        Fira Pro is designed to be privacy-first. We do not sell your data, and because we do not show advertisements, we do not use any ad-tracking identifiers.
+      </p>
+    </section>
+
+    <section>
+      <h2 className="text-2xl font-bold mb-4 text-fuchsia-500 font-tech">2. INFORMATION WE COLLECT</h2>
+      <ul className="list-disc pl-6 space-y-2 text-slate-700 dark:text-slate-300">
+        <li><strong>Account Data:</strong> We use anonymous authentication via Supabase. We do not collect personal identifiers unless you contact support.</li>
+        <li><strong>Usage Insights:</strong> We use Firebase Analytics to understand which stories and masterclasses are popular so we can improve content.</li>
+        <li><strong>Crash Reporting:</strong> Firebase Crashlytics helps us fix bugs by collecting technical device data during app failures.</li>
       </ul>
     </section>
 
     <section>
-      <h2 className="text-2xl font-bold mb-4 text-fuchsia-500 font-tech">2. HOW WE USE YOUR INFORMATION</h2>
-      <ul className="list-disc pl-6 space-y-2">
-        <li>To provide and maintain our Service, including the Story Reader and AI Prompt tools.</li>
-        <li>To manage your Premium subscription and "Pro" status.</li>
-        <li>To send you notifications about new stories (if permitted).</li>
+      <h2 className="text-2xl font-bold mb-4 text-purple-500 font-tech">3. SERVICE PROVIDERS</h2>
+      <p className="mb-4 text-slate-700 dark:text-slate-300">We use trusted partners to power the app:</p>
+      <ul className="list-disc pl-6 space-y-2 text-slate-700 dark:text-slate-300">
+        <li><strong>Supabase:</strong> Secure database and cloud storage for your Notepad and preferences.</li>
+        <li><strong>Firebase:</strong> Analytics and system notifications.</li>
+        <li><strong>Google Play Billing:</strong> To securely process your Pro upgrades.</li>
       </ul>
     </section>
 
     <section>
-      <h2 className="text-2xl font-bold mb-4 text-purple-500 font-tech">3. THIRD-PARTY SERVICES</h2>
-      <p className="mb-4">We use the following third-party providers:</p>
-      <ul className="list-disc pl-6 space-y-2">
-        <li><strong>Supabase:</strong> For database and authentication.</li>
-        <li><strong>Firebase:</strong> For analytics and crash reporting.</li>
-        <li><strong>Google AdMob:</strong> To show advertisements to free users.</li>
-        <li><strong>Google Play Billing:</strong> To process premium upgrades.</li>
-      </ul>
+      <h2 className="text-2xl font-bold mb-4 text-orange-500 font-tech">4. YOUR CONTROL</h2>
+      <p className="text-slate-700 dark:text-slate-300">
+        You have full control over your data. Since we use local and cloud-based storage for your stories and notes, you can manage your preferences directly within the App Settings.
+      </p>
     </section>
 
     <section>
-      <h2 className="text-2xl font-bold mb-4 text-orange-500 font-tech">4. DATA SECURITY</h2>
-      <p>We implement industry-standard security measures to protect your data. However, no method of transmission over the internet is 100% secure.</p>
-    </section>
-
-    <section>
-      <h2 className="text-2xl font-bold mb-4 text-blue-500 font-tech">5. CONTACT US</h2>
-      <p>
-        If you have questions about this Privacy Policy, please contact us at <a href="mailto:support@ailm.in" className="text-cyan-400 hover:underline">support@ailm.in</a>
+      <h2 className="text-2xl font-bold mb-4 text-blue-500 font-tech">5. CONTACT</h2>
+      <p className="text-slate-700 dark:text-slate-300">
+        For privacy inquiries: <a href="mailto:firapro.support@gmail.com" className="text-cyan-400 hover:underline">firapro.support@gmail.com</a>
       </p>
     </section>
   </div>
@@ -634,29 +633,47 @@ export const FIRA_PRO_PRIVACY_CONTENT = (
 export const FIRA_PRO_TERMS_CONTENT = (
   <div className="space-y-8">
     <section>
-      <h2 className="text-2xl font-bold mb-4 text-cyan-500 font-tech">1. ACCEPTANCE OF TERMS</h2>
-      <p>By downloading or using the Fira Pro application, these terms will automatically apply to you – you should make sure therefore that you read them carefully before using the app.</p>
+      <h2 className="text-2xl font-bold mb-4 text-cyan-500 font-tech">1. PRO STATUS & SUBSCRIPTIONS</h2>
+      <ul className="list-disc pl-6 space-y-2 text-slate-700 dark:text-slate-300">
+        <li><strong>Fira Pro:</strong> Access to premium prompts and masterclasses is granted via a one-time upgrade or subscription.</li>
+        <li><strong>Billing:</strong> All transactions are processed via Google Play Store. We do not store your credit card information.</li>
+        <li><strong>No Ads:</strong> We guarantee a 100% ad-free experience for all users of the Fira Pro application.</li>
+      </ul>
     </section>
 
     <section>
-      <h2 className="text-2xl font-bold mb-4 text-fuchsia-500 font-tech">2. INTELLECTUAL PROPERTY</h2>
-      <p>The app itself, and all the trademarks, copyright, database rights and other intellectual property rights related to it, still belong to AILM Labs.</p>
+      <h2 className="text-2xl font-bold mb-4 text-fuchsia-500 font-tech">2. CONTENT & INTELLECTUAL PROPERTY</h2>
+      <ul className="list-disc pl-6 space-y-2 text-slate-700 dark:text-slate-300">
+        <li><strong>App Content:</strong> All stories, lessons, and masterclass materials are the property of AILM Labs.</li>
+        <li><strong>Your Notes:</strong> Content created by you in the Notepad remains yours. We provide the storage, but you own the words.</li>
+      </ul>
     </section>
 
     <section>
-      <h2 className="text-2xl font-bold mb-4 text-purple-500 font-tech">3. SUBSCRIPTIONS</h2>
-      <p>Some parts of the Service are billed on a subscription basis. You will be billed in advance on a recurring and periodic basis.</p>
+      <h2 className="text-2xl font-bold mb-4 text-purple-500 font-tech">3. AI PROMPT USAGE</h2>
+      <p className="text-slate-700 dark:text-slate-300">
+        Prompts provided by Fira Pro are tools for creative inspiration. AILM Labs is not responsible for the output generated by external AI engines (like Midjourney or Sora) when using these prompts.
+      </p>
     </section>
 
     <section>
-      <h2 className="text-2xl font-bold mb-4 text-orange-500 font-tech">4. CHANGES TO THESE TERMS</h2>
-      <p>We may update our Terms and Conditions from time to time. Thus, you are advised to review this page periodically for any changes.</p>
+      <h2 className="text-2xl font-bold mb-4 text-orange-500 font-tech">4. USER CONDUCT</h2>
+      <p className="text-slate-700 dark:text-slate-300">
+        You agree not to attempt to reverse engineer the app or use our automated story content for commercial redistribution without a specific license.
+      </p>
     </section>
 
     <section>
-      <h2 className="text-2xl font-bold mb-4 text-blue-500 font-tech">5. CONTACT US</h2>
-      <p>
-        If you have any questions or suggestions about our Terms and Conditions, do not hesitate to contact us at <a href="mailto:support@ailm.in" className="text-cyan-400 hover:underline">support@ailm.in</a>
+      <h2 className="text-2xl font-bold mb-4 text-blue-500 font-tech">5. DISCLAIMER</h2>
+      <p className="text-slate-700 dark:text-slate-300">
+        Fira Pro is provided "as is." While we strive for 100% uptime and bug-free performance, we are not liable for any data loss or service interruptions.
+      </p>
+    </section>
+
+    <section>
+      <h2 className="text-2xl font-bold mb-4 text-emerald-500 font-tech">6. UPDATES</h2>
+      <p className="text-slate-700 dark:text-slate-300">
+        We may update these terms to reflect new app features. Continued use of the app implies acceptance of updated terms.
       </p>
     </section>
   </div>
