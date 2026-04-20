@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Zap, Heart, Cpu, Users, Bot, Globe, UserCheck, Clock, Copy, Check, ShieldCheck, CheckCircle2, AlertTriangle, Cloud, Archive, Info, BookOpen, CreditCard, Edit3, FileText, DatabaseZap, Share2 } from 'lucide-react';
+import { Mail, Zap, Heart, Cpu, Users, Bot, Globe, UserCheck, Clock, Copy, Check, ShieldCheck, CheckCircle2, AlertTriangle, Cloud, Archive, Info, BookOpen, CreditCard, Edit3, FileText, DatabaseZap, Share2, Sparkles, Terminal } from 'lucide-react';
 
 export const AboutPage = () => (
   <div className="min-h-screen bg-slate-950 text-white pt-32 pb-24 px-4 overflow-hidden">
@@ -466,3 +466,199 @@ export const PRIVACY_CONTENT = (
     </div>
   </div>
 );
+
+export const AILabsPage = ({ navigate }: { navigate: (path: string) => void }) => (
+  <div className="min-h-screen bg-slate-950 text-white pt-32 pb-24 px-4 overflow-hidden relative">
+    {/* Animated Background Elements */}
+    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/10 blur-[120px] rounded-full -z-0"></div>
+    <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/10 blur-[120px] rounded-full -z-0"></div>
+    
+    <div className="max-w-4xl mx-auto relative z-10">
+      <div className="text-center mb-20 animate-float">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 border border-slate-800 mb-6">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+          </span>
+          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-400">Innovation Hub</span>
+        </div>
+        <h1 className="text-5xl md:text-7xl font-tech font-black mb-6 leading-tight tracking-tighter">
+          AILM <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-cyan-500">LABS</span>
+        </h1>
+        <p className="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
+          Our specialized hub for next-generation mobile and web application development. Turning complex ideas into functional, high-performance software.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+        {[
+          { 
+            title: "Custom SaaS Platforms", 
+            desc: "Scalable web architectures built for high concurrency and seamless user experiences.",
+            icon: <Cloud className="w-8 h-8 text-cyan-400" />,
+            status: "In Progress"
+          },
+          { 
+            title: "Mobile Ecosystems", 
+            desc: "Native-feel cross-platform apps that leverage the full potential of iOS and Android hardware.",
+            icon: <Zap className="w-8 h-8 text-fuchsia-400" />,
+            status: "Beta"
+          },
+          { 
+            title: "AI Integrated Apps", 
+            desc: "Embedding advanced neural networks and LLMs directly into your business workflows with custom interfaces.",
+            icon: <Bot className="w-8 h-8 text-purple-400" />,
+            status: "Prototype"
+          },
+          { 
+            title: "Enterprise Portals", 
+            desc: "Secure, robust internal tools designed to streamline complex corporate data operations and reporting.",
+            icon: <ShieldCheck className="w-8 h-8 text-yellow-400" />,
+            status: "Deployment"
+          }
+        ].map((item, i) => (
+          <div key={i} className="bg-slate-900/40 border border-slate-800 rounded-3xl p-8 relative overflow-hidden group hover:border-slate-700 transition-all">
+            <div className="flex items-center justify-between mb-6">
+              <div className="p-3 bg-slate-800 rounded-2xl group-hover:scale-110 transition-transform">
+                {item.icon}
+              </div>
+              <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-slate-800 rounded-full text-slate-400 border border-slate-700">
+                {item.status}
+              </span>
+            </div>
+            <h3 className="text-2xl font-bold mb-3 font-tech">{item.title}</h3>
+            <p className="text-slate-400 leading-relaxed text-sm">
+              {item.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mb-24">
+        <h2 className="text-3xl font-bold font-tech mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500">Our Apps</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            { 
+              name: "Fira Pro", 
+              version: "v1.0.0",
+              icon: <Terminal className="w-6 h-6 text-cyan-400" />
+            }
+          ].map((app, i) => (
+            <div key={i} className="group p-6 bg-slate-900/60 border border-slate-800 rounded-2xl hover:border-cyan-500/50 transition-all">
+              <div className="flex items-center justify-between mb-4">
+                <div className="p-3 bg-slate-950 rounded-xl group-hover:scale-110 transition-transform">
+                  {app.icon}
+                </div>
+                <span className="text-[10px] font-bold text-cyan-500 bg-cyan-500/10 px-2 py-1 rounded tracking-tighter">
+                  {app.version}
+                </span>
+              </div>
+              <h3 className="text-xl font-bold mb-6 font-tech uppercase tracking-tighter">{app.name}</h3>
+              <div className="space-y-3">
+                <button 
+                  onClick={() => navigate('/ailmlabs/firapro/privacy')}
+                  className="w-full py-3 bg-slate-800 hover:bg-slate-700 rounded-xl text-[10px] font-bold uppercase tracking-[0.2em] transition-colors border border-slate-700"
+                >
+                  Privacy Policy
+                </button>
+                <button 
+                  onClick={() => navigate('/ailmlabs/firapro/terms')}
+                  className="w-full py-3 bg-slate-800 hover:bg-slate-700 rounded-xl text-[10px] font-bold uppercase tracking-[0.2em] transition-colors border border-slate-700"
+                >
+                  Terms and Conditions
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="bg-gradient-to-r from-cyan-900/20 to-fuchsia-900/20 border border-cyan-500/20 rounded-3xl p-10 text-center">
+        <h2 className="text-3xl font-bold font-tech mb-4 tracking-tighter">Become a Beta Tester</h2>
+        <p className="text-slate-400 mb-8 max-w-xl mx-auto">
+          Get early access to our experimental tools and help us shape the future of digital production.
+        </p>
+        <button className="bg-white text-slate-950 font-bold px-8 py-3 rounded-full hover:bg-cyan-400 transition-all transform hover:scale-105">
+          Join the Waitlist
+        </button>
+      </div>
+    </div>
+  </div>
+);
+
+export const FIRA_PRO_PRIVACY_CONTENT = (
+  <div className="space-y-8">
+    <section>
+      <h2 className="text-2xl font-bold mb-4 text-cyan-500 font-tech">1. INFORMATION WE COLLECT</h2>
+      <ul className="list-disc pl-6 space-y-2">
+        <li><strong>Account Data:</strong> We use anonymous authentication and Supabase Auth. We do not collect your name or email unless you explicitly provide it for support.</li>
+        <li><strong>Usage Data:</strong> We collect information on how you interact with stories, masterclasses, and AI tools via Firebase Analytics to improve the app experience.</li>
+        <li><strong>Device Information:</strong> We may collect basic device info (model, OS version) for crash reporting via Firebase Crashlytics.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 className="text-2xl font-bold mb-4 text-fuchsia-500 font-tech">2. HOW WE USE YOUR INFORMATION</h2>
+      <ul className="list-disc pl-6 space-y-2">
+        <li>To provide and maintain our Service, including the Story Reader and AI Prompt tools.</li>
+        <li>To manage your Premium subscription and "Pro" status.</li>
+        <li>To send you notifications about new stories (if permitted).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 className="text-2xl font-bold mb-4 text-purple-500 font-tech">3. THIRD-PARTY SERVICES</h2>
+      <p className="mb-4">We use the following third-party providers:</p>
+      <ul className="list-disc pl-6 space-y-2">
+        <li><strong>Supabase:</strong> For database and authentication.</li>
+        <li><strong>Firebase:</strong> For analytics and crash reporting.</li>
+        <li><strong>Google AdMob:</strong> To show advertisements to free users.</li>
+        <li><strong>Google Play Billing:</strong> To process premium upgrades.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 className="text-2xl font-bold mb-4 text-orange-500 font-tech">4. DATA SECURITY</h2>
+      <p>We implement industry-standard security measures to protect your data. However, no method of transmission over the internet is 100% secure.</p>
+    </section>
+
+    <section>
+      <h2 className="text-2xl font-bold mb-4 text-blue-500 font-tech">5. CONTACT US</h2>
+      <p>
+        If you have questions about this Privacy Policy, please contact us at <a href="mailto:support@ailm.in" className="text-cyan-400 hover:underline">support@ailm.in</a>
+      </p>
+    </section>
+  </div>
+);
+
+export const FIRA_PRO_TERMS_CONTENT = (
+  <div className="space-y-8">
+    <section>
+      <h2 className="text-2xl font-bold mb-4 text-cyan-500 font-tech">1. ACCEPTANCE OF TERMS</h2>
+      <p>By downloading or using the Fira Pro application, these terms will automatically apply to you – you should make sure therefore that you read them carefully before using the app.</p>
+    </section>
+
+    <section>
+      <h2 className="text-2xl font-bold mb-4 text-fuchsia-500 font-tech">2. INTELLECTUAL PROPERTY</h2>
+      <p>The app itself, and all the trademarks, copyright, database rights and other intellectual property rights related to it, still belong to AILM Labs.</p>
+    </section>
+
+    <section>
+      <h2 className="text-2xl font-bold mb-4 text-purple-500 font-tech">3. SUBSCRIPTIONS</h2>
+      <p>Some parts of the Service are billed on a subscription basis. You will be billed in advance on a recurring and periodic basis.</p>
+    </section>
+
+    <section>
+      <h2 className="text-2xl font-bold mb-4 text-orange-500 font-tech">4. CHANGES TO THESE TERMS</h2>
+      <p>We may update our Terms and Conditions from time to time. Thus, you are advised to review this page periodically for any changes.</p>
+    </section>
+
+    <section>
+      <h2 className="text-2xl font-bold mb-4 text-blue-500 font-tech">5. CONTACT US</h2>
+      <p>
+        If you have any questions or suggestions about our Terms and Conditions, do not hesitate to contact us at <a href="mailto:support@ailm.in" className="text-cyan-400 hover:underline">support@ailm.in</a>
+      </p>
+    </section>
+  </div>
+);
+

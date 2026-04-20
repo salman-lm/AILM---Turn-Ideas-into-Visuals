@@ -14,7 +14,7 @@ import { TESTIMONIALS, PRICING_PLANS, FAQS, SERVICE_DATA, IMPACT_STATS } from '.
 import InteractiveVideo from './components/InteractiveVideo';
 import AnimatedCounter from './components/AnimatedCounter';
 import OrderModal from './components/OrderModal';
-import { AboutPage, ContactPage, LegalPage, TERMS_CONTENT, REFUND_CONTENT, SHIPPING_CONTENT, PRIVACY_CONTENT } from './components/Pages';
+import { AboutPage, ContactPage, LegalPage, AILabsPage, TERMS_CONTENT, REFUND_CONTENT, SHIPPING_CONTENT, PRIVACY_CONTENT, FIRA_PRO_PRIVACY_CONTENT, FIRA_PRO_TERMS_CONTENT } from './components/Pages';
 
 const App = () => {
   const [path, setPath] = useState(window.location.pathname);
@@ -60,6 +60,9 @@ const App = () => {
       '/': "AILM - Digital Media Production & Software Development",
       '/about': "About Us - AILM",
       '/contact': "Contact - AILM",
+      '/aillabs': "Labs - AILM",
+      '/ailmlabs/firapro/privacy': "Fira Pro Privacy - AILM",
+      '/ailmlabs/firapro/terms': "Fira Pro Terms - AILM",
       '/terms': "Terms of Service - AILM",
       '/refund': "Refund Policy - AILM",
       '/shipping': "Delivery Policy - AILM",
@@ -253,6 +256,17 @@ const App = () => {
               className="w-full sm:w-auto px-10 py-5 bg-white dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-800 rounded-full font-bold text-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
             >
               View Services
+            </button>
+          </div>
+
+          <div className="mt-8 flex justify-center">
+            <button 
+              onClick={() => navigate('/aillabs')}
+              className="group relative flex items-center gap-3 px-8 py-3 rounded-2xl bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 transition-all hover:shadow-[0_0_20px_rgba(34,211,238,0.15)]"
+            >
+              <Sparkles className="w-5 h-5 text-fuchsia-500 group-hover:scale-125 transition-transform" />
+              <span className="text-sm font-black uppercase tracking-[0.2em] text-slate-600 dark:text-slate-300">AILM Labs</span>
+              <div className="absolute -top-3 -right-3 px-2 py-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-[8px] font-black italic rounded uppercase tracking-widest text-white shadow-lg animate-bounce">Beta Access</div>
             </button>
           </div>
 
@@ -675,6 +689,9 @@ const App = () => {
       case '/': return renderHome();
       case '/about': return <AboutPage />;
       case '/contact': return <ContactPage />;
+      case '/aillabs': return <AILabsPage navigate={navigate} />;
+      case '/ailmlabs/firapro/privacy': return <LegalPage title="Fira Pro Privacy Policy" subtitle="Last Updated: April 2026" content={FIRA_PRO_PRIVACY_CONTENT} />;
+      case '/ailmlabs/firapro/terms': return <LegalPage title="Fira Pro Terms and Conditions" subtitle="Last Updated: April 2026" content={FIRA_PRO_TERMS_CONTENT} />;
       case '/terms': return <LegalPage title="Terms of Service" subtitle="Last Updated: July 2024" content={TERMS_CONTENT} />;
       case '/refund': return <LegalPage title="Refund Policy" subtitle="Transparency is our core value." content={REFUND_CONTENT} />;
       case '/shipping': return <LegalPage title="Delivery Policy" subtitle="Instant, Secure, and 100% Digital." content={SHIPPING_CONTENT} />;
