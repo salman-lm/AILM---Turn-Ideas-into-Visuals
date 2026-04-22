@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Zap, Heart, Cpu, Users, Bot, Globe, UserCheck, Clock, Copy, Check, ShieldCheck, CheckCircle2, AlertTriangle, Cloud, Archive, Info, BookOpen, CreditCard, Edit3, FileText, DatabaseZap, Share2, Sparkles, Terminal } from 'lucide-react';
+import { Mail, Zap, Heart, Cpu, Users, Bot, Globe, UserCheck, Clock, Copy, Check, ShieldCheck, CheckCircle2, AlertTriangle, Cloud, Archive, Info, BookOpen, CreditCard, Edit3, FileText, DatabaseZap, Share2, Sparkles, Terminal, Smartphone, ArrowRight } from 'lucide-react';
 
 export const AboutPage = () => (
   <div className="min-h-screen bg-slate-950 text-white pt-32 pb-24 px-4 overflow-hidden">
@@ -676,6 +676,113 @@ export const FIRA_PRO_TERMS_CONTENT = (
         We may update these terms to reflect new app features. Continued use of the app implies acceptance of updated terms.
       </p>
     </section>
+  </div>
+);
+
+export const TestersPage = ({ onContact }: { onContact: () => void }) => (
+  <div className="min-h-screen bg-white text-slate-900 pt-32 pb-24 px-4 overflow-hidden relative selection:bg-blue-600/20">
+    <div className="absolute inset-0 z-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#2563eb 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+    
+    <div className="max-w-5xl mx-auto relative z-10">
+      <div className="text-center mb-16">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 mb-6 shadow-sm">
+          <span className="flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-blue-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+          </span>
+          <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600">Google Play Console Ready</span>
+        </div>
+        <h1 className="text-5xl md:text-7xl font-tech font-black mb-6 leading-tight tracking-tighter text-slate-900">
+          12 TESTERS <br/>
+          <span className="text-blue-600">HELP</span>
+        </h1>
+        <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto font-medium">
+          Professional closed-testing services designed to meet Google's 14-day requirement with 100% success guaranteed.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+        {[
+          { title: "14 Days Testing", icon: <Clock className="w-6 h-6"/>, desc: "Continuous testing for the required duration." },
+          { title: "Console Success", icon: <ShieldCheck className="w-6 h-6"/>, desc: "Verified testers to ensure production approval." },
+          { title: "No Upfront", icon: <CreditCard className="w-6 h-6"/>, desc: "Pay only after successful testing completion." },
+          { title: "100% Guaranteed", icon: <CheckCircle2 className="w-6 h-6"/>, desc: "Money-back guarantee on all services." }
+        ].map((feat, i) => (
+          <div key={i} className="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+            <div className="text-blue-600 mb-4 bg-blue-50 w-12 h-12 flex items-center justify-center rounded-xl">
+              {feat.icon}
+            </div>
+            <h4 className="font-bold text-slate-900 mb-1">{feat.title}</h4>
+            <p className="text-slate-500 text-xs leading-relaxed">{feat.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-12 shadow-xl shadow-blue-500/5 mb-16 overflow-hidden relative group">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2"></div>
+        <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
+          <div className="space-y-6">
+            <h2 className="text-4xl font-tech font-black text-slate-900">Premium Testing Infrastructure</h2>
+            <p className="text-slate-600 leading-relaxed">
+              We provide 20+ real Android devices and verified accounts to fulfill your Google Play Console closed testing requirements. Our team monitors your app daily, providing logs and feedback to satisfy Google's review algorithm.
+            </p>
+            <ul className="space-y-4">
+              <li className="flex items-center gap-3 text-sm font-bold text-slate-700">
+                <Check className="w-5 h-5 text-blue-500" /> Real human testers (No bots)
+              </li>
+              <li className="flex items-center gap-3 text-sm font-bold text-slate-700">
+                <Check className="w-5 h-5 text-blue-500" /> Daily interaction reports
+              </li>
+              <li className="flex items-center gap-3 text-sm font-bold text-slate-700">
+                <Check className="w-5 h-5 text-blue-500" /> Policy compliance check
+              </li>
+            </ul>
+            <div className="pt-4">
+              <button 
+                onClick={onContact}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-xl font-bold flex items-center gap-2 shadow-lg shadow-blue-600/20 transition-all transform hover:-translate-y-1 active:translate-y-0"
+              >
+                Get Started Now <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+          <div className="relative">
+             <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 aspect-square flex flex-col justify-between overflow-hidden shadow-inner">
+                <div className="flex justify-between items-center">
+                  <span className="text-slate-400"><Terminal className="w-10 h-10" /></span>
+                  <div className="text-right">
+                    <p className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Protocol</p>
+                    <p className="text-sm font-bold text-blue-600">GPC-20-SECURE</p>
+                  </div>
+                </div>
+                <div className="space-y-4 py-8">
+                  <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden">
+                    <div className="h-full w-3/4 bg-blue-500 animate-pulse"></div>
+                  </div>
+                  <div className="flex justify-between text-[10px] font-bold text-slate-500">
+                    <span>TESTING PROGRESS</span>
+                    <span>14 / 14 DAYS</span>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                   <div className="bg-white p-4 rounded-xl border border-slate-100">
+                      <p className="text-[8px] text-slate-400 uppercase font-black mb-1">Status</p>
+                      <p className="text-xs font-bold text-green-600 flex items-center gap-1"><span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span> Verified</p>
+                   </div>
+                   <div className="bg-white p-4 rounded-xl border border-slate-100">
+                      <p className="text-[8px] text-slate-400 uppercase font-black mb-1">Load</p>
+                      <p className="text-xs font-bold text-slate-900">Optimal</p>
+                   </div>
+                </div>
+             </div>
+          </div>
+        </div>
+      </div>
+      
+      <div className="text-center">
+        <p className="text-slate-400 text-sm font-medium">Trusted by indie developers worldwide.</p>
+      </div>
+    </div>
   </div>
 );
 

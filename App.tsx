@@ -8,13 +8,14 @@ import {
   Lightbulb,
   DatabaseZap,
   Cloud,
-  Bot
+  Bot,
+  Smartphone
 } from 'lucide-react';
 import { TESTIMONIALS, PRICING_PLANS, FAQS, SERVICE_DATA, IMPACT_STATS } from './constants';
 import InteractiveVideo from './components/InteractiveVideo';
 import AnimatedCounter from './components/AnimatedCounter';
 import OrderModal from './components/OrderModal';
-import { AboutPage, ContactPage, LegalPage, AILabsPage, TERMS_CONTENT, REFUND_CONTENT, SHIPPING_CONTENT, PRIVACY_CONTENT, FIRA_PRO_PRIVACY_CONTENT, FIRA_PRO_TERMS_CONTENT } from './components/Pages';
+import { AboutPage, ContactPage, LegalPage, AILabsPage, TERMS_CONTENT, REFUND_CONTENT, SHIPPING_CONTENT, PRIVACY_CONTENT, FIRA_PRO_PRIVACY_CONTENT, FIRA_PRO_TERMS_CONTENT, TestersPage } from './components/Pages';
 
 const App = () => {
   const [path, setPath] = useState(window.location.pathname);
@@ -66,7 +67,8 @@ const App = () => {
       '/terms': "Terms of Service - AILM",
       '/refund': "Refund Policy - AILM",
       '/shipping': "Delivery Policy - AILM",
-      '/privacy': "Privacy Policy - AILM"
+      '/privacy': "Privacy Policy - AILM",
+      '/testers': "12 Testers Help - GPC Testing"
     };
     document.title = titles[path] || "AILM - 404 Not Found";
     
@@ -259,7 +261,7 @@ const App = () => {
             </button>
           </div>
 
-          <div className="mt-8 flex justify-center">
+          <div className="mt-8 flex justify-center gap-4">
             <button 
               onClick={() => navigate('/aillabs')}
               className="group relative flex items-center gap-3 px-8 py-3 rounded-2xl bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 transition-all hover:shadow-[0_0_20px_rgba(34,211,238,0.15)]"
@@ -267,6 +269,13 @@ const App = () => {
               <Sparkles className="w-5 h-5 text-fuchsia-500 group-hover:scale-125 transition-transform" />
               <span className="text-sm font-black uppercase tracking-[0.2em] text-slate-600 dark:text-slate-300">AILM Labs</span>
               <div className="absolute -top-3 -right-3 px-2 py-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-[8px] font-black italic rounded uppercase tracking-widest text-white shadow-lg animate-bounce">Beta Access</div>
+            </button>
+            <button 
+              onClick={() => navigate('/testers')}
+              className="group relative flex items-center gap-3 px-8 py-3 rounded-2xl bg-blue-600 text-white hover:bg-blue-700 transition-all hover:shadow-[0_0_20px_rgba(37,99,235,0.3)]"
+            >
+              <Smartphone className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+              <span className="text-sm font-black uppercase tracking-[0.2em]">12 Testers Help</span>
             </button>
           </div>
 
@@ -696,6 +705,7 @@ const App = () => {
       case '/refund': return <LegalPage title="Refund Policy" subtitle="Transparency is our core value." content={REFUND_CONTENT} />;
       case '/shipping': return <LegalPage title="Delivery Policy" subtitle="Instant, Secure, and 100% Digital." content={SHIPPING_CONTENT} />;
       case '/privacy': return <LegalPage title="Privacy Policy" subtitle="Your Data, Your Trust." content={PRIVACY_CONTENT} />;
+      case '/testers': return <TestersPage onContact={() => navigate('/contact')} />;
       default: return renderHome(); // Fallback to home page
     }
   };
