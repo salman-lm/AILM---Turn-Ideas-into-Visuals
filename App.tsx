@@ -346,7 +346,7 @@ const App = () => {
                 {[
                   { title: "Custom SaaS", desc: "Scalable web applications built with modern stacks like Next.js and Node.js.", icon: <Cloud className="w-8 h-8 text-cyan-500" /> },
                   { title: "AI Integration", desc: "Infuse your software with intelligence using Gemini and custom LLM solutions.", icon: <Bot className="w-8 h-8 text-fuchsia-500" /> },
-                  { title: "Mobile Apps", desc: "High-performance native and cross-platform mobile experiences for iOS and Android.", icon: <Zap className="w-8 h-8 text-yellow-500" /> }
+                  { title: "Android Solutions", desc: "Specialized, deep-tier native Android development and optimization for flagship-level hardware.", icon: <Zap className="w-8 h-8 text-yellow-500" /> }
                 ].map((item, i) => (
                   <div key={i} className="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-cyan-500 transition-all group">
                     <div className="mb-6 p-3 bg-slate-50 dark:bg-slate-800 w-fit rounded-2xl group-hover:scale-110 transition-transform">

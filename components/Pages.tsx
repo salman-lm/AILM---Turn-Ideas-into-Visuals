@@ -468,119 +468,114 @@ export const PRIVACY_CONTENT = (
 );
 
 export const AILabsPage = ({ navigate }: { navigate: (path: string) => void }) => (
-  <div className="min-h-screen bg-slate-950 text-white pt-32 pb-24 px-4 overflow-hidden relative">
-    {/* Animated Background Elements */}
-    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/10 blur-[120px] rounded-full -z-0"></div>
-    <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/10 blur-[120px] rounded-full -z-0"></div>
+  <div className="min-h-screen bg-slate-950 text-white pt-32 pb-24 px-4 overflow-hidden relative selection:bg-cyan-500/30">
+    {/* High-Tech Background Elements */}
+    <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan-600/10 blur-[150px] rounded-full -z-0 animate-pulse"></div>
+    <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-purple-600/10 blur-[150px] rounded-full -z-0"></div>
+    <div className="absolute inset-0 z-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)', backgroundSize: '64px 64px' }}></div>
     
-    <div className="max-w-4xl mx-auto relative z-10">
-      <div className="text-center mb-20 animate-float">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 border border-slate-800 mb-6">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-          </span>
-          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-400">Innovation Hub</span>
+    <div className="max-w-6xl mx-auto relative z-10">
+      {/* Premium Hero */}
+      <div className="text-center mb-32 relative">
+        <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 mb-8 backdrop-blur-xl">
+          <Smartphone className="w-3.5 h-3.5 text-green-500" />
+          <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-300">Android Exclusive Architecture</span>
         </div>
-        <h1 className="text-5xl md:text-7xl font-tech font-black mb-6 leading-tight tracking-tighter">
-          AILM <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-cyan-500">LABS</span>
+        <h1 className="text-6xl md:text-8xl font-tech font-black mb-8 leading-none tracking-tighter">
+          AILM <span className="text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600">LABS</span>
         </h1>
-        <p className="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
-          Our specialized hub for next-generation mobile and web application development. Turning complex ideas into functional, high-performance software.
+        <p className="text-xl text-slate-400 leading-relaxed max-w-3xl mx-auto font-medium">
+          The engineering core of AILM. We specialize in deep-tier Android systems, high-performance web kernels, and integrated neural workflows.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+      {/* Services Grid */}
+      <h2 className="text-xs font-black uppercase tracking-[0.5em] text-slate-500 mb-12 text-center">Core Disciplines</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-32">
         {[
           { 
-            title: "Custom SaaS Platforms", 
-            desc: "Scalable web architectures built for high concurrency and seamless user experiences.",
+            title: "Advanced Android Kernels", 
+            desc: "Native C++ and Kotlin optimization for performance-critical Android applications.",
+            icon: <Smartphone className="w-8 h-8 text-green-400" />,
+            spec: "Level 1"
+          },
+          { 
+            title: "High-Freq Web Apps", 
+            desc: "Next-gen web architectures optimized for extreme load and ultra-low latency.",
             icon: <Cloud className="w-8 h-8 text-cyan-400" />,
-            status: "In Progress"
+            spec: "Edge Tech"
           },
           { 
-            title: "Mobile Ecosystems", 
-            desc: "Native-feel cross-platform apps that leverage the full potential of iOS and Android hardware.",
-            icon: <Zap className="w-8 h-8 text-fuchsia-400" />,
-            status: "Beta"
-          },
-          { 
-            title: "AI Integrated Apps", 
-            desc: "Embedding advanced neural networks and LLMs directly into your business workflows with custom interfaces.",
+            title: "Neural Integration", 
+            desc: "On-device AI inference and large-scale LLM business process automation.",
             icon: <Bot className="w-8 h-8 text-purple-400" />,
-            status: "Prototype"
+            spec: "Cognitive"
           },
           { 
-            title: "Enterprise Portals", 
-            desc: "Secure, robust internal tools designed to streamline complex corporate data operations and reporting.",
+            title: "Security Hardening", 
+            desc: "Enterprise-grade security audits and binary-level protection for digital assets.",
             icon: <ShieldCheck className="w-8 h-8 text-yellow-400" />,
-            status: "Deployment"
+            spec: "Fortress"
           }
         ].map((item, i) => (
-          <div key={i} className="bg-slate-900/40 border border-slate-800 rounded-3xl p-8 relative overflow-hidden group hover:border-slate-700 transition-all">
-            <div className="flex items-center justify-between mb-6">
-              <div className="p-3 bg-slate-800 rounded-2xl group-hover:scale-110 transition-transform">
+          <div key={i} className="bg-slate-900/50 backdrop-blur-3xl border border-slate-800/50 rounded-2xl p-8 relative overflow-hidden group hover:border-cyan-500/30 transition-all duration-500">
+            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
+               <div className="text-[40px] font-black font-tech leading-none">{i+1}</div>
+            </div>
+            <div className="mb-8">
+              <div className="p-4 bg-slate-800/50 rounded-2xl w-fit group-hover:scale-110 transition-transform duration-500 border border-slate-700/50">
                 {item.icon}
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-slate-800 rounded-full text-slate-400 border border-slate-700">
-                {item.status}
-              </span>
             </div>
-            <h3 className="text-2xl font-bold mb-3 font-tech">{item.title}</h3>
-            <p className="text-slate-400 leading-relaxed text-sm">
+            <div className="mb-2">
+               <span className="text-[9px] font-black uppercase tracking-widest text-slate-500">{item.spec}</span>
+            </div>
+            <h3 className="text-xl font-bold mb-3 font-tech leading-tight">{item.title}</h3>
+            <p className="text-slate-500 leading-relaxed text-sm group-hover:text-slate-400 transition-colors">
               {item.desc}
             </p>
           </div>
         ))}
       </div>
 
-      <div className="mb-24">
-        <h2 className="text-3xl font-bold font-tech mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500">Our Apps</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            { 
-              name: "Fira Pro", 
-              version: "v1.0.0",
-              icon: <Terminal className="w-6 h-6 text-cyan-400" />
-            }
-          ].map((app, i) => (
-            <div key={i} className="group p-6 bg-slate-900/60 border border-slate-800 rounded-2xl hover:border-cyan-500/50 transition-all">
-              <div className="flex items-center justify-between mb-4">
-                <div className="p-3 bg-slate-950 rounded-xl group-hover:scale-110 transition-transform">
-                  {app.icon}
-                </div>
-                <span className="text-[10px] font-bold text-cyan-500 bg-cyan-500/10 px-2 py-1 rounded tracking-tighter">
-                  {app.version}
-                </span>
-              </div>
-              <h3 className="text-xl font-bold mb-6 font-tech uppercase tracking-tighter">{app.name}</h3>
-              <div className="space-y-3">
-                <button 
-                  onClick={() => navigate('/ailmlabs/firapro/privacy')}
-                  className="w-full py-3 bg-slate-800 hover:bg-slate-700 rounded-xl text-[10px] font-bold uppercase tracking-[0.2em] transition-colors border border-slate-700"
-                >
-                  Privacy Policy
-                </button>
-                <button 
-                  onClick={() => navigate('/ailmlabs/firapro/terms')}
-                  className="w-full py-3 bg-slate-800 hover:bg-slate-700 rounded-xl text-[10px] font-bold uppercase tracking-[0.2em] transition-colors border border-slate-700"
-                >
-                  Terms and Conditions
-                </button>
-              </div>
+      {/* Android Exclusive Section - More Premium */}
+      <div className="mb-32">
+        <div className="bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 rounded-[3rem] p-12 md:p-20 relative overflow-hidden flex flex-col items-center text-center">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.05),transparent)]"></div>
+          <div className="relative z-10 max-w-2xl">
+            <h2 className="text-4xl md:text-5xl font-tech font-black mb-8 tracking-tighter">
+              Android-First <br/>
+              <span className="text-slate-500 font-sans font-light">Ecosystem Specialist.</span>
+            </h2>
+            <p className="text-lg text-slate-400 mb-12 leading-relaxed">
+              We made a strategic choice to master the Android ecosystem. By focusing exclusively on Android, we deliver deep integration, thermal-optimized performance, and hardware-level precision that generalist agencies cannot match.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <div className="px-6 py-3 bg-slate-800/50 rounded-2xl border border-slate-700 text-sm font-bold text-slate-300">No iOS Compromises</div>
+              <div className="px-6 py-3 bg-slate-800/50 rounded-2xl border border-slate-700 text-sm font-bold text-slate-300">Native Performance</div>
+              <div className="px-6 py-3 bg-slate-800/50 rounded-2xl border border-slate-700 text-sm font-bold text-slate-300">Hardware Synergy</div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
 
-      <div className="bg-gradient-to-r from-cyan-900/20 to-fuchsia-900/20 border border-cyan-500/20 rounded-3xl p-10 text-center">
-        <h2 className="text-3xl font-bold font-tech mb-4 tracking-tighter">Become a Beta Tester</h2>
-        <p className="text-slate-400 mb-8 max-w-xl mx-auto">
-          Get early access to our experimental tools and help us shape the future of digital production.
-        </p>
-        <button className="bg-white text-slate-950 font-bold px-8 py-3 rounded-full hover:bg-cyan-400 transition-all transform hover:scale-105">
-          Join the Waitlist
-        </button>
+      {/* Call to action */}
+      <div className="text-center relative">
+        <h3 className="text-3xl font-tech font-bold mb-8">Ready to engineer the future?</h3>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+          <button 
+            onClick={() => navigate('/contact')}
+            className="px-12 py-5 bg-white text-slate-950 font-black rounded-2xl hover:bg-cyan-400 transition-all transform hover:-translate-y-1 shadow-2xl shadow-white/5 active:translate-y-0"
+          >
+            Initiate Project
+          </button>
+          <button 
+             onClick={() => navigate('/contact')}
+             className="px-12 py-5 bg-slate-950 text-white border border-slate-800 font-black rounded-2xl hover:bg-slate-900 transition-all transform hover:-translate-y-1 active:translate-y-0"
+          >
+            Technical Consult
+          </button>
+        </div>
       </div>
     </div>
   </div>

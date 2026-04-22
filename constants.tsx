@@ -143,7 +143,7 @@ export const PRICING_PLANS: Record<string, PricingPlan[]> = {
     {
       name: "Enterprise",
       price: 12000,
-      features: ["Microservices Architecture", "Custom AI Integration", "Mobile App (iOS/Android)", "High-Load Optimization", "Dedicated Support", "Security Audit"],
+      features: ["Microservices Architecture", "Custom AI Integration", "Native Android Development", "High-Load Optimization", "Dedicated Support", "Security Audit"],
       excluded: []
     }
   ]
