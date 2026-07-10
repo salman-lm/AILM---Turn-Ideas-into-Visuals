@@ -527,63 +527,82 @@ const App = () => {
 
       {/* Pricing Section */}
       <section id="pricing" className="py-24 px-4 bg-slate-50 dark:bg-slate-950/50 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-sm font-bold text-fuchsia-500 uppercase tracking-widest mb-3">Simple Pricing</h2>
-            <h3 className="text-5xl md:text-6xl font-black text-slate-900 dark:text-white font-tech mb-8">TIERED PRODUCTION.</h3>
-            
-            <div className="flex justify-center p-1 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 w-fit mx-auto shadow-sm">
-               {Object.keys(PRICING_PLANS).map((tab) => (
-                 <button
-                  key={tab}
-                  onClick={() => setActivePricingTab(tab)}
-                  className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${activePricingTab === tab ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-lg' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'}`}
-                 >
-                   {tab}
-                 </button>
-               ))}
-            </div>
+        <div className="max-w-4xl mx-auto relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-sm font-bold text-fuchsia-500 uppercase tracking-widest mb-3">Simple & Flexible Pricing</h2>
+            <h3 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white font-tech tracking-tight">TRANSPARENT VALUE</h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {PRICING_PLANS[activePricingTab].map((plan, idx) => (
-              <div key={idx} className={`relative flex flex-col p-8 rounded-3xl border transition-all duration-300 ${plan.recommended ? 'bg-white dark:bg-slate-900 border-cyan-500 dark:border-neon-cyan shadow-2xl scale-105 z-10' : 'bg-white/50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'}`}>
-                {plan.recommended && (
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-white text-[10px] font-black uppercase px-4 py-1.5 rounded-full shadow-lg tracking-widest">
-                    Best Value
-                  </div>
-                )}
-                <div className="mb-8">
-                  <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2 font-tech">{plan.name}</h4>
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-black text-slate-900 dark:text-white">${plan.price}</span>
-                    <span className="text-slate-500 dark:text-slate-400 font-medium">/ project</span>
-                  </div>
+          <div className="relative group overflow-hidden rounded-[2.5rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 md:p-12 shadow-2xl transition-all duration-300 hover:border-cyan-500/50 dark:hover:border-neon-cyan/50">
+            {/* Ambient glows inside the card */}
+            <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 dark:bg-neon-cyan/10 blur-[100px] rounded-full pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-fuchsia-500/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+              <div className="space-y-6 text-center md:text-left max-w-xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-neon-cyan text-xs font-black uppercase tracking-widest">
+                  <span className="flex h-1.5 w-1.5 relative">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-500"></span>
+                  </span>
+                  Best Market Rates
                 </div>
                 
-                <ul className="space-y-4 mb-10 flex-grow">
-                  {plan.features.map((feature, fIdx) => (
-                    <li key={fIdx} className="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-300">
-                      <Check className="w-4 h-4 text-green-500 mt-0.5 shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                  {plan.excluded.map((feature, eIdx) => (
-                    <li key={eIdx} className="flex items-start gap-3 text-sm text-slate-400 dark:text-slate-500">
-                      <CloseIcon className="w-4 h-4 mt-0.5 shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                <h4 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white font-tech leading-tight">
+                  High-End Custom Solutions <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-fuchsia-500">Tailored to Your Budget.</span>
+                </h4>
+                
+                <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-base">
+                  We believe premium software engineering and professional digital media production should be highly accessible. Get custom-engineered solutions and high-converting storytelling assets configured perfectly for your needs.
+                </p>
 
-                <button 
-                  onClick={() => setIsOrderModalOpen(true)}
-                  className={`w-full py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2 ${plan.recommended ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:opacity-90' : 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700'}`}
-                >
-                  Get Started <ArrowRight className="w-4 h-4" />
-                </button>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 text-left">
+                  <div className="flex items-center gap-2.5 text-sm font-semibold text-slate-700 dark:text-slate-200">
+                    <Check className="w-4 h-4 text-green-500 shrink-0" />
+                    <span>Instant Project Setup</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 text-sm font-semibold text-slate-700 dark:text-slate-200">
+                    <Check className="w-4 h-4 text-green-500 shrink-0" />
+                    <span>Flexible Payment Options</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 text-sm font-semibold text-slate-700 dark:text-slate-200">
+                    <Check className="w-4 h-4 text-green-500 shrink-0" />
+                    <span>Unlimited Dev Iterations</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 text-sm font-semibold text-slate-700 dark:text-slate-200">
+                    <Check className="w-4 h-4 text-green-500 shrink-0" />
+                    <span>Continuous Daily Progress</span>
+                  </div>
+                </div>
               </div>
-            ))}
+
+              <div className="w-full md:w-auto shrink-0 flex flex-col items-center bg-slate-50 dark:bg-slate-950 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-inner min-w-[280px]">
+                <div className="text-center mb-6">
+                  <span className="text-xs font-black uppercase tracking-wider text-slate-400 dark:text-slate-500">Investment Tier</span>
+                  <div className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white font-tech mt-2 mb-1 tracking-tighter">
+                    Starts in <span className="text-cyan-500 dark:text-neon-cyan">$1</span>
+                  </div>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Fully customizable scope & pricing</p>
+                </div>
+
+                <div className="w-full space-y-4">
+                  <a 
+                    href="mailto:support@ailm.in"
+                    className="w-full py-4 px-6 bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-100 text-white dark:text-slate-900 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+                  >
+                    Contact via Email <ArrowRight className="w-4 h-4" />
+                  </a>
+                  
+                  <div className="text-center">
+                    <p className="text-[11px] text-slate-400 dark:text-slate-500 font-medium leading-relaxed">
+                      For custom pricing connect us: <br />
+                      <a href="mailto:support@ailm.in" className="font-bold text-cyan-600 dark:text-cyan-400 hover:underline">support@ailm.in</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="mt-16 bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm">
